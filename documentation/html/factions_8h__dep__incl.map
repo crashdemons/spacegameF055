@@ -1,0 +1,16 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$objects_8h.html" title="..." alt="" coords="259,752,333,779"/>
+<area shape="rect" id="node10" href="$_object_container_8h.html" title="Provides multiple&#45;ingame&#45;object control, filtering, and interaction." alt="" coords="150,80,276,107"/>
+<area shape="rect" id="node39" href="$gamestrings_8h.html" title="provides and constructs text seen in&#45;game." alt="" coords="764,677,868,704"/>
+<area shape="rect" id="node5" href="$game_8h.html" title="Game logic." alt="" coords="687,901,752,928"/>
+<area shape="rect" id="node7" href="$_u_i_8h.html" title="provides UI sprites and HUD control" alt="" coords="697,827,743,853"/>
+<area shape="rect" id="node13" href="$objects___scenery_8h.html" title="Base class for all in&#45;game objects as a form of sprite with extended movement and effect functions..." alt="" coords="148,155,279,181"/>
+<area shape="rect" id="node15" href="$objects___all_8h.html" title="..." alt="" coords="247,677,344,704"/>
+<area shape="rect" id="node18" href="$objects___explosion_8h.html" title="..." alt="" coords="144,229,283,256"/>
+<area shape="rect" id="node21" href="$objects___physical_8h.html" title="..." alt="" coords="254,304,385,331"/>
+<area shape="rect" id="node24" href="$objects___projectile_8h.html" title="..." alt="" coords="260,379,396,405"/>
+<area shape="rect" id="node30" href="$objects___ship_8h.html" title="..." alt="" coords="399,453,507,480"/>
+<area shape="rect" id="node27" href="$objects___debris_8h.html" title="..." alt="" coords="297,528,415,555"/>
+<area shape="rect" id="node33" href="$objects___player_ship_8h.html" title="..." alt="" coords="491,528,636,555"/>
+<area shape="rect" id="node36" href="$objects___n_p_c_ship_8h.html" title="..." alt="" coords="542,603,676,629"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node1" href="$class_scenery_object.html" title="Base class for all in&#45;game objects as a form of sprite with extended movement and effect functions..." alt="" coords="6,5,114,32"/>
+<area shape="rect" id="node3" href="$class_physical_object.html" title="objects that physically interact with other objects." alt="" coords="163,5,274,32"/>
+<area shape="rect" id="node5" href="$class_projectile.html" title="Physical objects that are fired, use interobject and view collision logic." alt="" coords="323,5,399,32"/>
+</map>

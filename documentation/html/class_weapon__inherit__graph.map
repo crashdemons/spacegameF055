@@ -1,0 +1,4 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_device.html" title="a piece of Equipment which can be turned on or off." alt="" coords="17,80,76,107"/>
+<area shape="rect" id="node4" href="$class_equipment.html" title="class providing control and logic about a piece of in&#45;game equipment, statistic and resource manipula..." alt="" coords="5,5,88,32"/>
+</map>

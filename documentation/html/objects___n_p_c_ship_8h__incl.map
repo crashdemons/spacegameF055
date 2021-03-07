@@ -1,0 +1,17 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$objects___ship_8h.html" title="..." alt="" coords="205,155,312,181"/>
+<area shape="rect" id="node54" href="$objects___player_ship_8h.html" title="..." alt="" coords="294,80,439,107"/>
+<area shape="rect" id="node5" href="$objects___physical_8h.html" title="..." alt="" coords="195,304,327,331"/>
+<area shape="rect" id="node51" href="$objects___projectile_8h.html" title="..." alt="" coords="193,229,329,256"/>
+<area shape="rect" id="node7" href="$objects___scenery_8h.html" title="Base class for all in&#45;game objects as a form of sprite with extended movement and effect functions..." alt="" coords="119,453,249,480"/>
+<area shape="rect" id="node44" href="$objects___explosion_8h.html" title="..." alt="" coords="87,379,225,405"/>
+<area shape="rect" id="node47" href="$_equipment_8h.html" title="Provides objects and storage information for virtual vessels." alt="" coords="421,603,515,629"/>
+<area shape="rect" id="node9" href="$_object_container_8h.html" title="Provides multiple&#45;ingame&#45;object control, filtering, and interaction." alt="" coords="121,528,247,555"/>
+<area shape="rect" id="node11" href="$drawing_8h.html" title="abstracted 2D drawing functions and structures" alt="" coords="5,603,83,629"/>
+<area shape="rect" id="node35" href="$input_8h.html" title="Abstracted device&#45;input for control in the game." alt="" coords="335,603,396,629"/>
+<area shape="rect" id="node39" href="$factions_8h.html" title="Faction and Reputation interactions and relative&#45;view logic." alt="" coords="231,603,309,629"/>
+<area shape="rect" id="node42" href="$object__sets_8h.html" title="..." alt="" coords="107,603,207,629"/>
+<area shape="rect" id="node13" href="$common_8h.html" title="Commonly used functions and debugging." alt="" coords="237,677,320,704"/>
+<area shape="rect" id="node23" href="$system_8h.html" title="..." alt="" coords="147,752,223,779"/>
+<area shape="rect" id="node28" href="$system___s_d_l_8h.html" title="..." alt="" coords="131,827,239,853"/>
+</map>

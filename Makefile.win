@@ -1,0 +1,45 @@
+# Project: GG2
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe -D__DEBUG__
+CC   = gcc.exe -D__DEBUG__
+WINDRES = windres.exe
+RES  = 
+OBJ  = main.o game.o drawing.o common.o factions.o objects.o $(RES)
+LINKOBJ  = main.o game.o drawing.o common.o factions.o objects.o $(RES)
+LIBS =  -L"D:/Dev-Cpp/lib" -mwindows -ld3d9 -ld3dx9  -lgmon -pg  -g3 -march=i386 
+INCS =  -I"D:/Dev-Cpp/include"  -I"D:/Dev-Cpp/the-agency/boost_1_31_0" 
+CXXINCS =  -I"D:/Dev-Cpp/lib/gcc/mingw32/3.4.2/include"  -I"D:/Dev-Cpp/include/c++/3.4.2/backward"  -I"D:/Dev-Cpp/include/c++/3.4.2/mingw32"  -I"D:/Dev-Cpp/include/c++/3.4.2"  -I"D:/Dev-Cpp/include" 
+BIN  = GG2.exe
+CXXFLAGS = $(CXXINCS)   -fexceptions -pg -g3 -march=i386
+CFLAGS = $(INCS)   -fexceptions -pg -g3 -march=i386
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before GG2.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o "GG2.exe" $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+game.o: game.cpp
+	$(CPP) -c game.cpp -o game.o $(CXXFLAGS)
+
+drawing.o: drawing.cpp
+	$(CPP) -c drawing.cpp -o drawing.o $(CXXFLAGS)
+
+common.o: common.cpp
+	$(CPP) -c common.cpp -o common.o $(CXXFLAGS)
+
+factions.o: factions.cpp
+	$(CPP) -c factions.cpp -o factions.o $(CXXFLAGS)
+
+objects.o: objects.cpp
+	$(CPP) -c objects.cpp -o objects.o $(CXXFLAGS)

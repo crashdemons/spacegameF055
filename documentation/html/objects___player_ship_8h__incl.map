@@ -1,0 +1,16 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$objects___ship_8h.html" title="..." alt="" coords="207,80,315,107"/>
+<area shape="rect" id="node35" href="$input_8h.html" title="Abstracted device&#45;input for control in the game." alt="" coords="335,528,396,555"/>
+<area shape="rect" id="node5" href="$objects___physical_8h.html" title="..." alt="" coords="195,229,327,256"/>
+<area shape="rect" id="node51" href="$objects___projectile_8h.html" title="..." alt="" coords="193,155,329,181"/>
+<area shape="rect" id="node7" href="$objects___scenery_8h.html" title="Base class for all in&#45;game objects as a form of sprite with extended movement and effect functions..." alt="" coords="119,379,249,405"/>
+<area shape="rect" id="node44" href="$objects___explosion_8h.html" title="..." alt="" coords="87,304,225,331"/>
+<area shape="rect" id="node47" href="$_equipment_8h.html" title="Provides objects and storage information for virtual vessels." alt="" coords="421,528,515,555"/>
+<area shape="rect" id="node9" href="$_object_container_8h.html" title="Provides multiple&#45;ingame&#45;object control, filtering, and interaction." alt="" coords="121,453,247,480"/>
+<area shape="rect" id="node11" href="$drawing_8h.html" title="abstracted 2D drawing functions and structures" alt="" coords="5,528,83,555"/>
+<area shape="rect" id="node39" href="$factions_8h.html" title="Faction and Reputation interactions and relative&#45;view logic." alt="" coords="231,528,309,555"/>
+<area shape="rect" id="node42" href="$object__sets_8h.html" title="..." alt="" coords="107,528,207,555"/>
+<area shape="rect" id="node13" href="$common_8h.html" title="Commonly used functions and debugging." alt="" coords="237,603,320,629"/>
+<area shape="rect" id="node23" href="$system_8h.html" title="..." alt="" coords="147,677,223,704"/>
+<area shape="rect" id="node28" href="$system___s_d_l_8h.html" title="..." alt="" coords="131,752,239,779"/>
+</map>

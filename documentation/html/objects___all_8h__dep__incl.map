@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$objects_8h.html" title="..." alt="" coords="16,80,91,107"/>
+<area shape="rect" id="node5" href="$game_8h.html" title="Game logic." alt="" coords="21,229,85,256"/>
+<area shape="rect" id="node7" href="$_u_i_8h.html" title="provides UI sprites and HUD control" alt="" coords="61,155,107,181"/>
+</map>

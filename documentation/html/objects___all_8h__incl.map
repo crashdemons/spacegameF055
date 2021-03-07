@@ -1,0 +1,19 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$objects___scenery_8h.html" title="Base class for all in&#45;game objects as a form of sprite with extended movement and effect functions..." alt="" coords="148,528,279,555"/>
+<area shape="rect" id="node40" href="$objects___explosion_8h.html" title="..." alt="" coords="144,453,283,480"/>
+<area shape="rect" id="node43" href="$objects___physical_8h.html" title="..." alt="" coords="265,379,396,405"/>
+<area shape="rect" id="node51" href="$objects___projectile_8h.html" title="..." alt="" coords="280,304,416,331"/>
+<area shape="rect" id="node54" href="$objects___debris_8h.html" title="..." alt="" coords="211,155,329,181"/>
+<area shape="rect" id="node57" href="$objects___ship_8h.html" title="..." alt="" coords="406,229,513,256"/>
+<area shape="rect" id="node61" href="$objects___player_ship_8h.html" title="..." alt="" coords="507,155,652,181"/>
+<area shape="rect" id="node65" href="$objects___n_p_c_ship_8h.html" title="..." alt="" coords="457,80,591,107"/>
+<area shape="rect" id="node5" href="$_object_container_8h.html" title="Provides multiple&#45;ingame&#45;object control, filtering, and interaction." alt="" coords="150,603,276,629"/>
+<area shape="rect" id="node7" href="$drawing_8h.html" title="abstracted 2D drawing functions and structures" alt="" coords="129,677,207,704"/>
+<area shape="rect" id="node31" href="$input_8h.html" title="Abstracted device&#45;input for control in the game." alt="" coords="335,677,396,704"/>
+<area shape="rect" id="node35" href="$factions_8h.html" title="Faction and Reputation interactions and relative&#45;view logic." alt="" coords="231,677,309,704"/>
+<area shape="rect" id="node38" href="$object__sets_8h.html" title="..." alt="" coords="5,677,104,704"/>
+<area shape="rect" id="node9" href="$common_8h.html" title="Commonly used functions and debugging." alt="" coords="237,752,320,779"/>
+<area shape="rect" id="node19" href="$system_8h.html" title="..." alt="" coords="241,827,316,853"/>
+<area shape="rect" id="node24" href="$system___s_d_l_8h.html" title="..." alt="" coords="225,901,332,928"/>
+<area shape="rect" id="node47" href="$_equipment_8h.html" title="Provides objects and storage information for virtual vessels." alt="" coords="421,677,515,704"/>
+</map>

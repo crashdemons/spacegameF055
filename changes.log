@@ -1,0 +1,220 @@
+NOTE: I suggest checking SVN.LOG also
+
+Jan 2
+
+Jan 1 2012
+	System abstraction mostly done with some unresolved issues:
+		What do I do about RECT, POINT, LPRECT, LPPOINT, HWND, HDC, IntersectRect, BOOL, TRUE, FALSE, VK_*?
+		I could force the implementation to define them....
+			Idea: BOOL/IntersectRect:  replace IntersectRect with a System abstraction function, remove all BOOL references, but then what about `RECT` parameters? perhaps void*?
+				When all of the above are defined (via syntax in system.h comment block), redefinition errors are acquired from system-dependent libraries.
+		All shouldbe-system-independent source references to the `BOOL` and/or IntersectRect()  are:  2 in Objects_scenery.cpp, IntersectRect and `TRUE`
+	Notes when Abstracting System:
+		Don't touch system-dependent libraries like `drawing_d3d` or `sound_winapi`
+
+	Idea: ShipType enum and ShipInfo structs, similar to Projectiles.  useful to set different qualities of differing ships and to save data
+		Alternatively, more classes (req: restructuring Ship and NPCShip into one then build ship types on top of Ship)
+
+Dec 31 2011
+	Started working on an abstraction for System so that Windows-specific commands do not dominate operation.
+
+	Wasted a ton of time writing an audio abstraction for XACT, only to find out that while code, DLL's, documentation were offered - the .lib's were not.
+		No .lib's, no linking - Thus, nothing accomplished; but I still have the source for it if I do acquire .LIB's at some point.
+Dec 30
+
+Dec 29
+
+
+
+Found bug: PlayersOnly mode doesn't change move the viewport. 
+	suspect bug in ObjectContainer::Step()
+	or some other explanation for playership not found as a centering image? (all objects are shifted relative to center in Draw() )
+
+
+Going outside the world boundary now calls die() instead of just changing visibility
+	visibility=false prompts queue deletion currently, die() sets visibility currently (and also does deathspawns, etc). 
+	Calling die() however allows for easier refactoring later.
+	This will help when I eventually shift away from deleting invisible objects. 
+	Having objects that can act but can't be seen is important in numerous ways; deleting by visibility was laziness.
+
+
+--------------------------------------------
+Dec 27
+Fixed a Release-mode crash caused by an uninitialized EquipmentType in Equipment classes.
+Changed Drawing code to provide compatible base classes for Drawing_Info and Image_Info instead of having purely D3D-specific declarations.
+	todo: move all purely-geometric functions and structures into a separate file?
+Attempted to implement a Sound library for WinAPI; succeeded but current implementation causes small delays, making drawing look horrible. Defaulting to no-sound.
+
+
+Dec 25
+Fixed attached effects (Glows) from appearing behind their sprite; the fix, while ugly, was to call reattach() directly before drawing
+	I'm not quite sure why this is required except that the objects undergo one Step (tick) ahead of glows somehow. [clarified]
+
+Added a check that should reduce glow effects from getting attached to new sprites with the same index (filling empty spots)
+
+Fixed unintentional image/bounding-box rubber-banding by separating View-centering from the Draw step (now done just after all object Steps complete)
+	This originally caused bounding-boxes and shields to appear unaligned to their respective sprite.
+	Note: this does not fix "attached" effects (Glows) from appearing behind their sprite - this has to do with them being updated out-of-sync
+Changed view-centering code to look better. behavior appears unchanged.
+
+Shield flare now also causes a short glow effect.
+
+Dec 24
+Added shield sprites with amount coloring and damage flaring (flaring just changes to yellow temporarily)
+Changed the damage formula as follows:
+	Shields at or under 50 units half the damage taken (but take full damage themself), shields over 50 protect take all the damage themself (full protection)
+	Note: damage is integer, so it undergoes float halving and and the results are rounded, damage of '1' will probably be taken by both shields & ship; (3 damage =  3 shield damage, 1 ship damage)
+	
+Dec 20-22
+Implemented game controller information polling, added POV (d-pad) control of game cursor. (todo: ship control via axes)
+			(todo: axes- axes+ values, deadzone checking,  ON/OFF threshold checking; need min/max/on/off/deadzone thresholds for all of them?)
+			(idea: axes array (+/- separately))
+			(idea: Input_GetSingleKeyDown; using Keyboard, Mouse, GameCtrlbuttons, Pov buttons, and axes on/off thresholds, check for any one item that is on/down)
+			(idea: modify Input_GetExplicitKeyState to support POV/Axes)
+
+Testing shows that sprites can support full alpha, for some reason I thought they could only have solid alpha. Full alpha images are now used for some sprites.
+
+Testing shows that 1x drawing (game is currently drawn scaled to 2x) seems to work fine now (suspect internal code changes) and can be implemented in the future.
+	Only remaining issues with 1x is where 
+		1. some visual effects and static weapons are draw set pixel distances from other objects (easily fixed by adjustment or worked-around via larger sprites).
+		2. some specific sprites were already drawn at 1x and look too large for all-1x mode, this can be fixed by either making them smaller or scaling them down.
+
+Added code that eliminates drawing of objects that are outside of the viewport. [clarified]
+
+Dec 19
+Added PlayersOnly mode ('L' key) for debugging. Allows you to use your ship while everything else is paused. (freezing time)
+
+Mouse-mode can be toggled also now with 'M' key.
+
+Added a sprite counter to debug mode
+
+Testing some minimal exhaust trail and weapons glows (visual effects)
+
+Reimplemented currently-unused `fraction` parameter of SceneryObject::VelocityStepRel(...)
+
+Finished adding comments to everything in the SceneryOject header (objects_Scenery.h)
+
+HUD Bars are now slightly transparent
+
+Cargo UI next/previous buttons now fixed
+
+Dec 18 2011
+Implemented shield extenders (shield storage, implementation-wise;  extends maximum)
+Implemented generators (repair, shields, fuel (dust scoop); which cost energy to run)
+
+
+changed explosions to support SceneryObject updates including velocity and possibly spinning
+	the canMove flag in Explosion() can be changed to alter this behavior easily.
+
+
+All objects_* classes have had their methods put into .cpp files - FINALLY!
+
+Debris class added: form of always-enemy no-owner projectiles; for use as asteroids and ship debris.
+Ship death now creates debris (metallic).
+
+Mouse input and keyboard input have now been converted to use DirectInput 8
+In addition, this change allows checking Pressed/Released states (as opposed to just UP/DOWN),
+which removes the need for some delays when hitting keys;
+as a result you may notice performance (visual) when using the cargo UI or debug buttons.
+... the change to DirectInput is a precursor to supporting gamepads/joysticks in the future.
+
+
+Todo: cargo UI implement scroll wheel [mouse.z] maybe
+	put trails placed behind ship slightly
+Ideas: weapon select pane in HUD, implement scroll wheel to select
+		use dummy stats to show costs/advantages of specific items in Cargo UI.
+
+------------------------------
+
+
+
+
+1 -> 2
+NPCShip - Corrected uninitialized Faction* rep, causing a failed release attempt during CopyFaction.
+NPCShip - Corrected Faction* rep being assigned to a passed Faction* after copying. (code meant to be removed).
+Bug found: in-faction projectile collisions (and projectile-ship collisions)
+--------------
+Rewritten parts for VS'08 express  compatibility.
+Bug found - design limitation: faction-neutral objects appear allied; they should default to NEUTRAL by special condition
+	similarly, attacks on faction-neutral ships may yield all members of that faction becoming hostile, etc.
+	similarly, neutral ships cannot track enemies yet as all other enemy code is faction-hostile based.
+		suggestion: either track a list of aggressors or track a single aggressor that preoccupies the ship.
+			(check this: the latter option may already be implemented, not sure.)
+Bug: tractor beam and mining laser use bounding-circle, which is incorrect... suggest linear for first, angle for second
+		Idea: add PhysicalObject to have a bounding-type flag that determines behavior.
+			Note: difficulty - transforming a bounding rectangle/etc.
+			
+			
+			
+			
+Dec 11, 2011: Swapped out object health/etc statistics for an object. Added Equipment that will perform stats motifications.
+	working on Equipment/Cargo UI, fixed text to appear above sprites, added Pause button (P or [PAUSE])
+-		
+			
+			
+			
+			
+			
+			
+			
+			
+Input: mouse movement(turn to face mouse) , dual stick movement (one stick steers, one stick is held to fire in a direction)		
+			
+Idea: weapons targetting modes to switch who you can shoot. (Free-firing-mode (manual targetting), Friend-or-foe detection (default)
+	or:  mode 1-can attack anyone; Mode 2-can attack Criminal, or Hostiles only (not Neutral, Employees or Allies); Mode 3- can attack Neutral, Criminal, or Hostile only; possible Mode 4: selection targetting only?
+	toggle with T perhaps.
+Old idea: pirates can appear as Neutral in-system and can possibly start raids (exposing their true colors[faction], as it were)
+idea: detect hostile/criminal ships in the area.
+idea: even without selection-targetting we should still be able to select ships in the area for analysis/navigational marking.
+
+
+IMPORTANT: Decide to use GetView or just reputation.get().  getView will use AsViewedBy; which checks deep faction-associations.
+		Check the effect on AsViewedBy for test-cases like Enemy to both Rebel and Fed set; hoping it doesn't consider ALLIED/FRIENDLY for someone.
+		
+		
+		upgrades, cargo and research; and reactor upgrades
+		
+idea: show important faction associations
+
+idea: additional player stats:
+	kills(total and per-faction), credits, systems controlled, missions completed (total and per-faction), boardings
+idea: achievements - system: possibly a class that is notified of various changes and events and does it's own record-keeping.
+	Infamous - many neutral kills
+	Ruthless - many more neutral kills
+	
+	Emperor - systems controlled  (different names please)
+	Dictator - more systems
+	??? - Conquer all systems of a major faction (when not associated with a major cause)
+	??? - conquer all systems in the galaxy.
+	
+	Bounty hunter - ?
+	Enforcer - criminal kills.
+	
+	(some of these may not be possible)
+	Outlaw - many factions consider you this. (CRIMINAL)
+	Public Enemy No. 1 - many factions are hostile.
+	Loner - many factions unfriendly.
+	Let's be friends - many factions are friendly.
+	Working man - employee to many factions
+	Double agent - Allied to many factions
+	
+	War Hero - Many enemy kills or many missions completed (when associated with major causes)
+	Citizen's Arrest = disable or tow a criminal ship when not associated with a major cause.
+	Indestructible - Survive many many attacks without changing systems or docking without being destroyed/disabled OR conquer major faction base.
+	
+	First contact - friendly (at least) with aliens 
+	Expert Pilot - navigate an asteroid field (without taking damage?)
+	Miner - acquire resources from an asteroid.
+	
+	Ghost - Get your record criminal/hostile cleared up (via criminals/pirates; new identity and new ship)
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

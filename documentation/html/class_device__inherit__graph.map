@@ -1,0 +1,7 @@
+<map id="G" name="G">
+<area shape="rect" id="node5" href="$class_engine.html" title="NOT IMPLEMENTED: a device which provides movement capability &#45; possibly at the cost of either energy ..." alt="" coords="5,155,67,181"/>
+<area shape="rect" id="node7" href="$class_generator.html" title="a device which generates a set Statistic (Health,Shields,Fuel) at the cost of Energy" alt="" coords="91,155,169,181"/>
+<area shape="rect" id="node9" href="$class_reactor.html" title="a device which generates Energy statistic, generally free of charge (except for Fuel Reactors)..." alt="" coords="195,155,261,181"/>
+<area shape="rect" id="node11" href="$class_weapon.html" title="NOT IMPLEMENTED: a device that provides offensive/attack capabilities at the cost of energy..." alt="" coords="286,155,356,181"/>
+<area shape="rect" id="node2" href="$class_equipment.html" title="class providing control and logic about a piece of in&#45;game equipment, statistic and resource manipula..." alt="" coords="137,5,220,32"/>
+</map>
